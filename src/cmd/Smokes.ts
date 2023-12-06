@@ -63,5 +63,6 @@ export class SmokesCommand {
       .description('A command for tracking my smoking habits.')
       .addCommand(addSubCommand)
       .addCommand(countSubCommand)
+      .alias('s')
   }
 }

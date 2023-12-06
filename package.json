@@ -1,7 +1,7 @@
 {
   "name": "@4lch4/apollo-cli",
   "displayName": "Apollo CLI",
-  "version": "0.0.1-0",
+  "version": "0.0.1-1",
   "description": "The CLI component of Project Apollo.",
   "keywords": [
     "4lch4",

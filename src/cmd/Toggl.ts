@@ -28,9 +28,7 @@ export class TogglCommand {
 
           console.log(Chalk.green(`Successfully started '${timer}' timer`))
 
-          const res = Notify.send(`Successfully started '${timer}' timer`)
-
-          console.log(`[TogglCommand#build>startSubCommandAction]: res:`, res)
+          Notify.send(`Successfully started '${timer}' timer`)
         } catch (error) {
           console.error('[TogglCommand#build>startSubCommandAction]: Failed to start the timer:\n')
 

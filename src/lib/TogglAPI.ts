@@ -184,8 +184,6 @@ export class TogglAPI {
         break
     }
 
-    console.debug(`[TogglAPI#getPredefinedTimerData]: Timer Data:`, timerData)
-
     return timerData
   }
 

@@ -1,6 +1,6 @@
 import Chalk from 'chalk'
 import { Argument, Command } from 'commander'
-import { PredefinedTimers, TogglAPI } from '~/lib/TogglAPI'
+import { Notify, PredefinedTimers, TogglAPI } from '~/lib'
 
 /**
  * This is a utility class that builds out a base Commander Command for
@@ -27,8 +27,12 @@ export class TogglCommand {
           await togglAPI.startPredefinedTimer(timer)
 
           console.log(Chalk.green(`Successfully started '${timer}' timer`))
+
+          const res = Notify.send(`Successfully started '${timer}' timer`)
+
+          console.log(`[TogglCommand#build>startSubCommandAction]: res:`, res)
         } catch (error) {
-          console.error('Failed to start the timer:\n')
+          console.error('[TogglCommand#build>startSubCommandAction]: Failed to start the timer:\n')
 
           console.error(error)
         }
@@ -57,7 +61,13 @@ export class TogglCommand {
           if (activeTimer) {
             console.log(Chalk.green(`Active Timer: ${Chalk.bold(activeTimer.description)}`))
             console.log(Chalk.green(`Start Time: ${Chalk.bold(new Date(activeTimer.start))}`))
-          } else console.log(Chalk.red('There is no active timer.'))
+
+            Notify.send(activeTimer.description, 'Active Toggl Timer')
+          } else {
+            console.log(Chalk.red('There is no active timer.'))
+
+            Notify.send('There is no active timer.', 'Active Toggl Timer')
+          }
         } catch (error) {
           console.error('Failed to get the active timer:\n')
 

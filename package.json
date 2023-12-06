@@ -27,7 +27,6 @@
   "type": "module",
   "exports": "./dist/index.js",
   "main": "./dist/index.js",
-  "types": "./src/index.d.ts",
   "bin": {
     "apollo": "./dist/index.js"
   },

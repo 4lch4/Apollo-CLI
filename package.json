@@ -3,11 +3,16 @@
   "displayName": "Apollo CLI",
   "version": "0.0.0",
   "description": "The CLI component of Project Apollo.",
-  "keywords": [ "4lch4" ],
+  "keywords": [
+    "4lch4",
+    "events",
+    "cli",
+    "apollo"
+  ],
   "homepage": "https://github.com/4lch4/Apollo-CLI",
   "bugs": {
-    "email": "bugs@4lch4.email",
-    "url": "https://github.com/4lch4/Apollo-CLI/issues"
+    "url": "https://github.com/4lch4/Apollo-CLI/issues",
+    "email": "bugs@4lch4.email"
   },
   "repository": {
     "type": "git",
@@ -23,12 +28,21 @@
   "exports": "./dist/index.js",
   "main": "./dist/index.js",
   "types": "./src/index.d.ts",
+  "bin": {
+    "apollo": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "start": "bun run dist/index.js",
+    "build": "bun build ./src/index.ts --target bun --outfile dist/index.js",
     "dev": "bun run --watch src/index.ts",
-    "build": "tsc && tsc-alias",
-    "pretty": "prettier --write .",
     "lint": "prettier -c .",
+    "pretty": "prettier --write .",
+    "start": "bun run dist/index.js",
     "test": "bun test"
   },
   "dependencies": {
